@@ -270,7 +270,7 @@ except Exception as e:
     st.error(f"벡터라이저 로드 실패: {e}")
 
 # 데이터 로드
-data_path = "e:/pickca/streamlit/"
+data_path = "./"
 merged_file_name = "merged_cafe_data.csv"
 naver_map_url = "https://map.naver.com/p/smart-around/place/"
 data = load_merged_data(data_path, merged_file_name)
