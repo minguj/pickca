@@ -2,14 +2,14 @@ import streamlit as st
 from konlpy.tag import Okt
 import os
 import jpype
+import subprocess
 
-# # JAVA_HOME 환경 변수 설정
-os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
-os.environ['PATH'] += os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
+# 패키지 설치 확인 (openjdk-11-jdk가 설치되었는지 확인)
+result = subprocess.run(["dpkg-query", "-l", "openjdk-11-jdk"], capture_output=True, text=True)
 
-# JAVA_HOME 경로 출력
-java_home = os.environ.get('JAVA_HOME', 'Not Set')
-print(f"JAVA_HOME: {java_home}")
+# 출력 확인
+print(result.stdout)
+
 
 
 # st.title("Streamlit + konlpy 테스트")
