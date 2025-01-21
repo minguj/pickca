@@ -5,13 +5,13 @@ import jpype
 import subprocess
 
 
-subprocess.run(['sudo', 'apt-get', 'install', '-y', 'openjdk-11-jdk'], check=True)
+# openjdk 설치 여부 확인
+result = subprocess.run(['dpkg-query', '-l', 'openjdk-11-jdk'], capture_output=True, text=True)
 
-# 패키지 설치 확인 (openjdk-11-jdk가 설치되었는지 확인)
-result = subprocess.run(["dpkg-query", "-l", "openjdk-11-jdk"], capture_output=True, text=True)
-
-# 출력 확인
-print(result.stdout)
+if result.returncode == 0:
+    print("openjdk-11-jdk is installed.")
+else:
+    print("openjdk-11-jdk is not installed.")
 
 
 
