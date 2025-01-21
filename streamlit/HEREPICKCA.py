@@ -8,9 +8,19 @@ import ast
 import time
 import random
 import streamlit.components.v1 as components
+import os
+import jpype
 
 # Streamlit 페이지 기본 설정
 st.set_page_config(page_title="PickCa", layout="wide", page_icon='♥')
+
+# JAVA_HOME 환경 변수 수동 설정
+os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
+os.environ['PATH'] += os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
+
+# JVM이 시작되지 않았다면 수동으로 시작
+if not jpype.isJVMStarted():
+    jpype.startJVM(jpype.getDefaultJVMPath())
 
 # 상태 관리 초기화
 if "centered" not in st.session_state:
