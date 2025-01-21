@@ -11,6 +11,8 @@ import jpype
 # if not jpype.isJVMStarted():
 #     jpype.startJVM(jpype.getDefaultJVMPath())
 
+jpype.startJVM("/usr/lib/jvm/java-11-openjdk-amd64/jre/lib/amd64/server/libjvm.so")
+
 st.title("Streamlit + konlpy 테스트")
 
 # 텍스트 입력
