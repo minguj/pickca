@@ -3,13 +3,13 @@ from konlpy.tag import Okt
 import os
 import jpype
 
-# JAVA_HOME 환경 변수 설정
-os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
-os.environ['PATH'] += os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
+# # JAVA_HOME 환경 변수 설정
+# os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-17-openjdk-amd64'
+# os.environ['PATH'] += os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
 
-# JVM 시작 (필요 시 수동으로 시작)
-if not jpype.isJVMStarted():
-    jpype.startJVM(jpype.getDefaultJVMPath())
+# # JVM 시작 (필요 시 수동으로 시작)
+# if not jpype.isJVMStarted():
+#     jpype.startJVM(jpype.getDefaultJVMPath())
 
 st.title("Streamlit + konlpy 테스트")
 
