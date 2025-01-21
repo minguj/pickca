@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from konlpy.tag import Okt
+#from konlpy.tag import Okt
 from sklearn.metrics.pairwise import cosine_similarity
 import joblib
 import ast
@@ -10,6 +10,7 @@ import random
 import streamlit.components.v1 as components
 import os
 import jpype
+from soynlp.tokenizer import LTokenizer
 
 # Streamlit 페이지 기본 설정
 st.set_page_config(page_title="PickCa", layout="wide", page_icon='♥')
@@ -168,7 +169,8 @@ def get_season_emojis(seasonal_value):
     return html_emojis
 
 # Okt 객체 초기화
-okt = Okt()
+#okt = Okt()
+tokenizer = LTokenizer()
 
 # 데이터 로드 함수
 @st.cache_data
@@ -205,7 +207,8 @@ def load_merged_data(data_path, file_name):
 
 # 사용자 입력에서 명사와 형용사만 추출
 def extract_nouns_and_adjectives(input_text):
-    pos_tags = okt.pos(input_text)
+    pos_tags = tokenizer.tokenize(input_text)) 
+    #okt.pos(input_text)
     return ' '.join(word for word, tag in pos_tags if tag in ['Noun', 'Adjective'])
 
 # 사용자 입력을 벡터화
