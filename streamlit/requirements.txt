@@ -1,6 +1,5 @@
+pip>=24.0
 streamlit
-default-jre
-openjdk-8-jdk
 konlpy
 JPype1>=1.0.2
 scikit-learn
