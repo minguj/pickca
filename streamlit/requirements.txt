@@ -4,4 +4,4 @@ JPype1>=1.0.2
 scikit-learn
 pandas
 numpy
-soynlp==0.0.50
+soynlp==0.0.49
