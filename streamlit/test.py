@@ -5,15 +5,6 @@ import jpype
 import subprocess
 
 
-# openjdk 설치 여부 확인
-result = subprocess.run(['dpkg-query', '-l', 'openjdk-11-jdk'], capture_output=True, text=True)
-
-if result.returncode == 0:
-    print("openjdk-11-jdk is installed.")
-else:
-    print("openjdk-11-jdk is not installed.")
-
-
 
 st.title("Streamlit + konlpy 테스트")
 
