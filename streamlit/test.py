@@ -11,7 +11,17 @@ import jpype
 # if not jpype.isJVMStarted():
 #     jpype.startJVM(jpype.getDefaultJVMPath())
 
-jpype.startJVM("/usr/lib/jvm/java-11-openjdk-amd64/jre/lib/amd64/server/libjvm.so")
+# Java 경로 출력
+java_home = os.environ.get('JAVA_HOME', 'Not Set')
+print(f"JAVA_HOME: {java_home}")
+
+# JVM 경로 출력
+try:
+    import jpype
+    jvm_path = jpype.getDefaultJVMPath()
+    print(f"JVM Path: {jvm_path}")
+except Exception as e:
+    print(f"Error: {e}")
 
 st.title("Streamlit + konlpy 테스트")
 
