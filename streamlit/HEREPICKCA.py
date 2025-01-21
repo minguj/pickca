@@ -207,7 +207,7 @@ def load_merged_data(data_path, file_name):
 
 # 사용자 입력에서 명사와 형용사만 추출
 def extract_nouns_and_adjectives(input_text):
-    pos_tags = tokenizer.tokenize(input_text)) 
+    pos_tags = tokenizer.tokenize(input_text)
     #okt.pos(input_text)
     return ' '.join(word for word, tag in pos_tags if tag in ['Noun', 'Adjective'])
 
